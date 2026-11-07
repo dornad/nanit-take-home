@@ -1,0 +1,12 @@
+# Xcode per-user state: window layout, breakpoints, scheme selection.
+# None of it belongs to the project, and it changes every time Xcode opens.
+xcuserdata/
+*.xcuserstate
+
+# Build output. Builds go to DerivedData by default, but `xcodebuild
+# -derivedDataPath` (used in the README) can put it inside the repo.
+build/
+DerivedData/
+
+# macOS Finder metadata.
+.DS_Store
