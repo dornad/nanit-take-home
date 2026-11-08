@@ -125,6 +125,9 @@ struct DetailsView: View {
                     model.profile.birthday = birthday
                 }
             }
+            .photoSourcePicker(isPresented: $isChoosingPhoto) { image in
+                model.setPhoto(image)
+            }
         }
     }
     
