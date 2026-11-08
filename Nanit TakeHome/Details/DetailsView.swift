@@ -16,15 +16,20 @@ final class DetailsModel {
     
     /// The baby's picture or `nil` to show the placeholder.
     fileprivate(set) var photo: UIImage?
+    
+    /// Where everything is saved.
+    ///
+    /// `@ObservationIgnored`: Store never changes, so there's nothing for SwiftUI to watch.
+    @ObservationIgnored private let store: any ProfileStore
 
     /// `profile` defaults to `nil` rather than `.init()` because default arguments are evaluated
     /// in a nonisolated context, where the main actor-isolated `BabyProfile.init()` can't be called.
     init(
-        profile: BabyProfile? = nil
+        store: any ProfileStore = DiskProfileStore()
     ) {
-        // TBD in Step 2: Persistance and Image handling
-        self.profile = profile ?? BabyProfile()
-        self.photo = nil
+        self.store = store
+        self.profile = store.loadProfile()
+        self.photo = store.loadPhoto()
     }
 }
 
@@ -126,9 +131,9 @@ private struct ProfilePicture: View {
 }
 
 #Preview("Filled profile") {
-    DetailsView(model: DetailsModel(profile: BabyProfile(
+    DetailsView(model: DetailsModel(store: InMemoryProfileStore(profile: BabyProfile(
         name: "Anakin Skywalker",
         birthday: Birthday(year: 2025, month: 10, day: 1)
-    )))
+    ))))
 }
 
