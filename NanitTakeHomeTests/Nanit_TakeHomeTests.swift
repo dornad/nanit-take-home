@@ -1,12 +1,12 @@
 //
 //  Nanit_TakeHomeTests.swift
-//  Nanit TakeHomeTests
+//  NanitTakeHomeTests
 //
 //  Created by Daniel Rodriguez on 11/7/26.
 //
 
 import Testing
-@testable import Nanit_TakeHome
+@testable import NanitTakeHome
 
 struct Nanit_TakeHomeTests {
 

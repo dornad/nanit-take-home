@@ -1,5 +1,5 @@
 //
-//  Nanit_TakeHomeApp.swift
+//  NanitTakeHomeApp.swift
 //  Nanit TakeHome
 //
 //  Created by Daniel Rodriguez on 11/7/26.
