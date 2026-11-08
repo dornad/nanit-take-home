@@ -8,11 +8,25 @@
 import Observation
 import SwiftUI
 
+// MARK: - DetailsModel
+
 @MainActor
 @Observable
 final class DetailsModel {
-    /// The name and birthday. 
-    fileprivate(set) var profile: BabyProfile
+    /// The name and birthday.
+    ///
+    /// Leverages `didSet` to save the profile.
+    ///
+    /// Note: `didSet` piping into `UserDefaults` without a debounce is OK in this case.
+    /// A profile is a few bytes, and `UserDefaults` updates its in-memory copy right away
+    /// and writes to disk asynchronously, so a save per keystroke never blocks typing.
+    ///
+    /// See the "Overview" in Apple's `UserDefaults` documentation.
+    var profile: BabyProfile {
+        didSet {
+            store.saveProfile(profile)
+        }
+    }
     
     /// The baby's picture or `nil` to show the placeholder.
     fileprivate(set) var photo: UIImage?
@@ -31,7 +45,13 @@ final class DetailsModel {
         self.profile = store.loadProfile()
         self.photo = store.loadPhoto()
     }
+    
+    func setPhoto(_ image: UIImage) {
+        let prepared = image.preparedForStorage()
+    }
 }
+
+// MARK: - DetailsView
 
 struct DetailsView: View {
     
