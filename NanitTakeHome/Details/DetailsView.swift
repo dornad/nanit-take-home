@@ -48,6 +48,8 @@ final class DetailsModel {
     
     func setPhoto(_ image: UIImage) {
         let prepared = image.preparedForStorage()
+        store.savePhoto(prepared)
+        photo = prepared
     }
 }
 
@@ -57,12 +59,25 @@ struct DetailsView: View {
     
     @Bindable var model: DetailsModel
     
+    @State private var isChoosingPhoto = false
+    @State private var isEditingBirthday = false
+    
+    /// I can't believe this has not been fixed by Apple...
+    ///
+    /// Without this, a subtle bug appears: if the user is typing a name and then taps the picture,
+    /// the dialog appears over the keyboard. When the dialog closes, the system gives focus *back*
+    /// to the text field and the keyboard pops up again, covering the screen.
+    ///
+    /// Clearing focus before opening the dialog or sheet prevents that.
+    @FocusState private var isNameFocused: Bool
+    
     var body: some View {
         NavigationStack {
             Form {
                 Section {
                     Button {
-                        // TBD
+                        isNameFocused = false
+                        isChoosingPhoto = true
                     } label: {
                         ProfilePicture(photo: model.photo)
                     }
@@ -74,10 +89,12 @@ struct DetailsView: View {
                 Section {
                     TextField("Name", text: $model.profile.name)
                         .textInputAutocapitalization(.words)
-                        .autocorrectionDisabled() // avoid iOS fixing unusual names - gives parent full control!
+                        .autocorrectionDisabled() // avoid iOS fixing unusual names.
                         .submitLabel(.done)
+                        .focused($isNameFocused)
                     Button {
-                        // TBD
+                        isNameFocused = false
+                        isEditingBirthday = true
                     } label: {
                         LabeledContent("Birthday") {
                             if let birthday = model.profile.birthday {
@@ -98,6 +115,14 @@ struct DetailsView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .disabled(!model.profile.canShowBirthdayScreen)
+                }
+            }
+            .navigationTitle("Happy Birthday")
+            .navigationBarTitleDisplayMode(.large)
+            .scrollDismissesKeyboard(.interactively)
+            .sheet(isPresented: $isEditingBirthday) {
+                BirthdayPickerSheet(initial: model.profile.birthday) { birthday in
+                    model.profile.birthday = birthday
                 }
             }
         }
