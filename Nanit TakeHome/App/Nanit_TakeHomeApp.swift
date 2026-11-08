@@ -11,7 +11,7 @@ import SwiftUI
 struct Nanit_TakeHomeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DetailsView(model: DetailsModel())
         }
     }
 }
