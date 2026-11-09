@@ -32,6 +32,8 @@ struct BirthdayCardView: View {
     let safeAreaInsets: EdgeInsets
 
     var onClose: () -> Void = {}
+    
+    var onChangePhoto: (() -> Void)? = nil
 
     var body: some View {
         ZStack {
@@ -42,7 +44,7 @@ struct BirthdayCardView: View {
                 BabyCircleView(
                     photo: photo,
                     theme: theme,
-                    onCameraTap: { /* */ }
+                    onCameraTap: onChangePhoto
                 )
                 
                 Image("logo_nanit")
