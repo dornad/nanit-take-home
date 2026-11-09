@@ -71,6 +71,8 @@ struct DetailsView: View {
     /// Clearing focus before opening the dialog or sheet prevents that.
     @FocusState private var isNameFocused: Bool
     
+    @State private var presentedTheme: BirthdayTheme?
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -111,7 +113,8 @@ struct DetailsView: View {
                 
                 Section {
                     Button("Show birthday screen") {
-                        // TBD
+                        isNameFocused = false
+                        presentedTheme = .random()
                     }
                     .frame(maxWidth: .infinity)
                     .disabled(!model.profile.canShowBirthdayScreen)
@@ -127,6 +130,9 @@ struct DetailsView: View {
             }
             .photoSourcePicker(isPresented: $isChoosingPhoto) { image in
                 model.setPhoto(image)
+            }
+            .fullScreenCover(item: $presentedTheme) { theme in
+                BirthdayScreen(model: model, theme: theme)
             }
         }
     }
