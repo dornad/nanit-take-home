@@ -4,8 +4,6 @@
 //
 //  Created by Daniel Rodriguez on 11/8/26.
 //
-
-
 import SwiftUI
 
 /// Birthday screen's artwork, drawn from plain values.
