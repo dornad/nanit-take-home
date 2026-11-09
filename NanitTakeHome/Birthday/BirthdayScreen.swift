@@ -13,6 +13,8 @@ struct BirthdayScreen: View {
 
     @Environment(\.dismiss) private var dismiss
     
+    @State private var isChoosingPhoto = false
+    
     private var age: BabyAge {
         guard let birthday = model.profile.birthday else { return .months(0) }
         return BabyAge(birthday: birthday, on: .now)
@@ -27,12 +29,15 @@ struct BirthdayScreen: View {
                 theme: theme,
                 safeAreaInsets: proxy.safeAreaInsets,
                 onClose: { dismiss() },
+                onChangePhoto: { isChoosingPhoto = true }
             )
+        }
+        .photoSourcePicker(isPresented: $isChoosingPhoto){ image in
+            model.setPhoto(image)
         }
         // Force the design to show in Light mode, otherwise the system's
         // status bar would otherwise turn white and disappear against
         // against the pastel colors.
-        .preferredColorScheme(.light)   
-        // Note: Step 4 will add photo change in here
+        .preferredColorScheme(.light)
     }
 }
