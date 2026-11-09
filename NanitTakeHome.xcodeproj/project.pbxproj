@@ -14,19 +14,11 @@
 			remoteGlobalIDString = 5CC086D0309FE8FE006B1A18;
 			remoteInfo = "Nanit TakeHome";
 		};
-		5CC086E9309FE900006B1A18 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5CC086C9309FE8FE006B1A18 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5CC086D0309FE8FE006B1A18;
-			remoteInfo = "Nanit TakeHome";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5CC086D1309FE8FE006B1A18 /* NanitTakeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NanitTakeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC086DE309FE900006B1A18 /* NanitTakeHomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NanitTakeHomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CC086E8309FE900006B1A18 /* NanitTakeHomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NanitTakeHomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,11 +30,6 @@
 		5CC086E1309FE900006B1A18 /* NanitTakeHomeTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = NanitTakeHomeTests;
-			sourceTree = "<group>";
-		};
-		5CC086EB309FE900006B1A18 /* NanitTakeHomeUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = NanitTakeHomeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -58,11 +45,6 @@
 			files = (
 			);
 		};
-		5CC086E5309FE900006B1A18 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			files = (
-			);
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -71,7 +53,6 @@
 			children = (
 				5CC086D3309FE8FE006B1A18 /* NanitTakeHome */,
 				5CC086E1309FE900006B1A18 /* NanitTakeHomeTests */,
-				5CC086EB309FE900006B1A18 /* NanitTakeHomeUITests */,
 				5CC086D2309FE8FE006B1A18 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,7 +62,6 @@
 			children = (
 				5CC086D1309FE8FE006B1A18 /* NanitTakeHome.app */,
 				5CC086DE309FE900006B1A18 /* NanitTakeHomeTests.xctest */,
-				5CC086E8309FE900006B1A18 /* NanitTakeHomeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,27 +108,6 @@
 			productReference = 5CC086DE309FE900006B1A18 /* NanitTakeHomeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5CC086E7309FE900006B1A18 /* NanitTakeHomeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5CC086F6309FE900006B1A18 /* Build configuration list for PBXNativeTarget "NanitTakeHomeUITests" */;
-			buildPhases = (
-				5CC086E4309FE900006B1A18 /* Sources */,
-				5CC086E5309FE900006B1A18 /* Frameworks */,
-				5CC086E6309FE900006B1A18 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5CC086EA309FE900006B1A18 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				5CC086EB309FE900006B1A18 /* NanitTakeHomeUITests */,
-			);
-			name = NanitTakeHomeUITests;
-			productName = "Nanit TakeHomeUITests";
-			productReference = 5CC086E8309FE900006B1A18 /* NanitTakeHomeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -163,10 +122,6 @@
 						CreatedOnToolsVersion = 27.1;
 					};
 					5CC086DD309FE900006B1A18 = {
-						CreatedOnToolsVersion = 27.1;
-						TestTargetID = 5CC086D0309FE8FE006B1A18;
-					};
-					5CC086E7309FE900006B1A18 = {
 						CreatedOnToolsVersion = 27.1;
 						TestTargetID = 5CC086D0309FE8FE006B1A18;
 					};
@@ -188,7 +143,6 @@
 			targets = (
 				5CC086D0309FE8FE006B1A18 /* NanitTakeHome */,
 				5CC086DD309FE900006B1A18 /* NanitTakeHomeTests */,
-				5CC086E7309FE900006B1A18 /* NanitTakeHomeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -200,11 +154,6 @@
 			);
 		};
 		5CC086DC309FE900006B1A18 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			files = (
-			);
-		};
-		5CC086E6309FE900006B1A18 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -222,11 +171,6 @@
 			files = (
 			);
 		};
-		5CC086E4309FE900006B1A18 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			files = (
-			);
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -234,11 +178,6 @@
 			isa = PBXTargetDependency;
 			target = 5CC086D0309FE8FE006B1A18 /* NanitTakeHome */;
 			targetProxy = 5CC086DF309FE900006B1A18 /* PBXContainerItemProxy */;
-		};
-		5CC086EA309FE900006B1A18 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5CC086D0309FE8FE006B1A18 /* NanitTakeHome */;
-			targetProxy = 5CC086E9309FE900006B1A18 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -476,46 +415,6 @@
 			};
 			name = Release;
 		};
-		5CC086F7309FE900006B1A18 /* Debug configuration for PBXNativeTarget "NanitTakeHomeUITests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EPM348UVLC;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.dornad.Nanit-TakeHomeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Nanit TakeHome";
-			};
-			name = Debug;
-		};
-		5CC086F8309FE900006B1A18 /* Release configuration for PBXNativeTarget "NanitTakeHomeUITests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EPM348UVLC;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.dornad.Nanit-TakeHomeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Nanit TakeHome";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -540,14 +439,6 @@
 			buildConfigurations = (
 				5CC086F4309FE900006B1A18 /* Debug configuration for PBXNativeTarget "NanitTakeHomeTests" */,
 				5CC086F5309FE900006B1A18 /* Release configuration for PBXNativeTarget "NanitTakeHomeTests" */,
-			);
-			defaultConfigurationName = Release;
-		};
-		5CC086F6309FE900006B1A18 /* Build configuration list for PBXNativeTarget "NanitTakeHomeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5CC086F7309FE900006B1A18 /* Debug configuration for PBXNativeTarget "NanitTakeHomeUITests" */,
-				5CC086F8309FE900006B1A18 /* Release configuration for PBXNativeTarget "NanitTakeHomeUITests" */,
 			);
 			defaultConfigurationName = Release;
 		};
