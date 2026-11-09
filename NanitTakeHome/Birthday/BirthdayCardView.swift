@@ -34,6 +34,12 @@ struct BirthdayCardView: View {
     var onClose: () -> Void = {}
     
     var onChangePhoto: (() -> Void)? = nil
+    var onShare: (() -> Void)? = nil
+    
+    /// Whether the interactive controls (back, camera, share) are drawn.
+    /// `false` is used when rendering the image to share, so the shared picture
+    /// has none of them.
+    var isChromeVisible = true
 
     var body: some View {
         ZStack {
@@ -44,18 +50,24 @@ struct BirthdayCardView: View {
                 BabyCircleView(
                     photo: photo,
                     theme: theme,
-                    onCameraTap: onChangePhoto
+                    onCameraTap: isChromeVisible ? onChangePhoto : nil
                 )
                 
                 Image("logo_nanit")
                 
-                ShareButton()
+                if isChromeVisible, let onShare {
+                    ShareButton(action: onShare)
+                } else {
+                    Color.clear
+                }
             }
         }
         .overlay(alignment: .topLeading) {
-            BackButton(action: onClose)
-                .padding(.top, safeAreaInsets.top + BackButton.topOffset)
-                .padding(.leading, max(safeAreaInsets.leading, BackButton.leadingOffset))
+            if isChromeVisible {
+                BackButton(action: onClose)
+                    .padding(.top, safeAreaInsets.top + BackButton.topOffset)
+                    .padding(.leading, max(safeAreaInsets.leading, BackButton.leadingOffset))
+            }
         }
         .ignoresSafeArea()
     }
@@ -201,8 +213,10 @@ private struct BackButton: View {
 // MARK: - ShareButton
 
 private struct ShareButton: View {
+    let action: () -> Void
+    
     var body: some View {
-        Button(action: { /* TBD */ }) {
+        Button(action: action) {
             HStack(spacing: 7) {
                 Text("Share the news")
                     .font(.system(size: 17))
